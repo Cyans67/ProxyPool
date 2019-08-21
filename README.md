@@ -21,8 +21,6 @@
 
 * 支持版本: ![](https://img.shields.io/badge/Python-2.x-green.svg) ![](https://img.shields.io/badge/Python-3.x-blue.svg)
 
-* 测试地址: http://118.24.52.95:5010 (单机勿压。感谢)
-
 ### 下载安装
 
 * 下载源码:
@@ -47,9 +45,9 @@ pip install -r requirements.txt
 # 配置DB     
 DATABASES = {
     "default": {
-        "TYPE": "SSDB",        # 如果使用SSDB或redis数据库，均配置为SSDB
+        "TYPE": "MONGODB",        # 如果使用SSDB或redis数据库，均配置为SSDB
         "HOST": "127.0.0.1",   # db host
-        "PORT": 8888,          # db port，例如SSDB通常使用8888，redis通常默认使用6379
+        "PORT": 27017,          # db port，例如SSDB通常使用8888，redis通常默认使用6379
         "NAME": "proxy",       # 默认配置
         "PASSWORD": ""         # db password
 
@@ -60,8 +58,8 @@ DATABASES = {
 # 配置 ProxyGetter
 
 PROXY_GETTER = [
-    "freeProxyFirst",      # 这里是启用的代理抓取函数名，可在ProxyGetter/getFreeProxy.py 扩展
-    "freeProxySecond",
+    "freeProxy01",      # 这里是启用的代理抓取函数名，可在ProxyGetter/getFreeProxy.py 扩展
+    "freeProxy02",
     ....
 ]
 
@@ -70,7 +68,7 @@ PROXY_GETTER = [
 
 SERVER_API = {
     "HOST": "0.0.0.0",  # 监听ip, 0.0.0.0 监听所有IP
-    "PORT": 5010        # 监听端口
+    "PORT": 8090        # 监听端口
 }
        
 # 上面配置启动后，代理池访问地址为 http://127.0.0.1:5010
